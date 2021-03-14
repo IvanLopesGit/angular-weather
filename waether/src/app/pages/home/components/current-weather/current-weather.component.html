@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-body">
+    <h2>{{ cityName }}</h2>
+
+    <app-detailed-weather
+      [weather]="cityWeather.weather"
+    ></app-detailed-weather>
+
+    <div class="card-actions">
+      <a class="card-link" (click)="(toggleBookmark)"
+        >Adicionar aos Favoritos!</a
+      >
+      <a class="card-link" routerLink="/details">Ver Detalhes</a>
+    </div>
+  </div>
+</div>
