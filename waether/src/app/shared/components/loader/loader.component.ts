@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'weather-loader',
+  selector: 'ivan-loader',
   template: `
     <div class="spinner">
       <div class="double-bounce1"></div>

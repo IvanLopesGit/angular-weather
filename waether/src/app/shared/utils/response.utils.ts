@@ -25,7 +25,7 @@ export function responseToCityWeather(response: any): CityWeather {
       sunrise: response.sys.sunrise,
       sunset: response.sys.sunset,
     },
-  };
+  }
 }
 
 export function responseToCityDailyWeather(response: any): CityDailyWeather {
@@ -53,7 +53,7 @@ export function responseToCityDailyWeather(response: any): CityDailyWeather {
       sunset: response.current.sunset,
       sunrise: response.current.sunrise,
     },
-    daily: response.daily.map((d) => ({
+    daily: response.daily.map(d => ({
       date: d.dt,
       weather: {
         id: d.weather[0].id,
@@ -69,7 +69,7 @@ export function responseToCityDailyWeather(response: any): CityDailyWeather {
         },
         sunset: d.sunset,
         sunrise: d.sunrise,
-      },
+      }
     })),
-  };
+  }
 }

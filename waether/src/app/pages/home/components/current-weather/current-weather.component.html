@@ -2,15 +2,25 @@
   <div class="card-body">
     <h2>{{ cityName }}</h2>
 
-    <app-detailed-weather
+    <ivan-detailed-weather
       [weather]="cityWeather.weather"
-    ></app-detailed-weather>
+      [unit]="unit"
+    ></ivan-detailed-weather>
 
     <div class="card-actions">
-      <a class="card-link" (click)="(toggleBookmark)"
-        >Adicionar aos Favoritos!</a
+      <a class="card-link" (click)="onToggleBookmark()">
+        {{ isFavorite ? "Remover dos favoritos" : "Adicionar aos favoritos" }}
+      </a>
+      <a
+        class="card-link"
+        routerLink="/details"
+        [queryParams]="{
+          lat: cityWeather.city.coord.lat,
+          lon: cityWeather.city.coord.lon
+        }"
       >
-      <a class="card-link" routerLink="/details">Ver Detalhes</a>
+        Ver detalhes
+      </a>
     </div>
   </div>
 </div>

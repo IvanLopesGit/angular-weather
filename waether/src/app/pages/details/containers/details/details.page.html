@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <ivan-loader *ngIf="loading$ | async; else notLoading"></ivan-loader>
+
+  <ng-template #notLoading>
+    <ng-container *ngIf="!(error$ | async)">
+      <h1>
+        {{ (details$ | async).city.name }}, {{ (details$ | async).city.country
+        }}
+      </h1>
+
+      <div class="card current-card">
+        <ivan-detailed-weather
+          [weather]="(details$ | async).current"
+          [unit]="unit$ | async"
+        ></ivan-detailed-weather>
+      </div>
+
+      <ivan-daily-weather
+        *ngFor="let daily of (details$ | async).daily"
+        [dailyWeather]="daily"
+        [timeZone]="(details$ | async).city.timeZone"
+        [unit]="unit$ | async"
+      ></ivan-daily-weather>
+    </ng-container>
+
+    <div *ngIf="error$ | async">Erro</div>
+  </ng-template>
+</div>
